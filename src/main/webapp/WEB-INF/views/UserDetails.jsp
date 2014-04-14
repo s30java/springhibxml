@@ -11,9 +11,6 @@
 <center>
 
 <div style="color: teal;font-size: 30px">User Details</div>
-
-
-
 <c:if test="${!empty user}">
 <table border="1" bgcolor="black" width="600px">
 <tr style="background-color: teal;color: white;text-align: center;" height="40px">
