@@ -61,6 +61,20 @@ public class UserDaoImpl implements UserDao {
 	}
 
 
+	@Override
+	public void updateUser(UserModel user) {
+		
+		UserModel userModel=new UserModel();
+		userModel.setId(user.getId()); 
+		userModel.setFirstName(user.getFirstName());
+		userModel.setLastName(user.getLastName());
+		userModel.setCity(user.getCity());
+		userModel.setGender(user.getGender());
+		sessionFactory.getCurrentSession().update(userModel);
+		
+	}
+
+
 
 
 }

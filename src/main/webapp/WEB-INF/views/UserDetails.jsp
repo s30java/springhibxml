@@ -11,6 +11,7 @@
 <center>
 
 <div style="color: teal;font-size: 30px">User Details</div>
+<p>${message}</p>
 <c:if test="${!empty user}">
 <table border="1" bgcolor="black" width="600px">
 <tr style="background-color: teal;color: white;text-align: center;" height="40px">
@@ -29,8 +30,7 @@
 <td><c:out value="${user.gender}"/></td>
 <td><c:out value="${user.city}"/></td>
 <td><a href="${pageContext.request.contextPath}/user/edit/${user.id}.html">Edit</a></td>
-<td><a href="${pageContext.request.contextPath}/user/edit/${user.id}.html">Delete</a></td>
-<td><c:out value="${user.city}"/></td>
+<td><a href="${pageContext.request.contextPath}/user/delete/${user.id}.html">Delete</a></td>
 </tr>
 </c:forEach>
 </table>

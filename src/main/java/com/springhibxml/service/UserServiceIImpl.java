@@ -42,4 +42,10 @@ public class UserServiceIImpl implements UserService {
 		return userModel;
 	}
 
+	@Override
+	public void updateUser(UserModel user) {
+		userDao.updateUser(user);
+		
+	}
+
 }

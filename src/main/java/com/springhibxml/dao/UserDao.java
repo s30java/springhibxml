@@ -11,4 +11,5 @@ public interface UserDao {
 	public List<UserModel> getUser();
 	public void deleteUser(int id);
 	public UserModel getUser(int id);
+	public void updateUser(UserModel user);
 }

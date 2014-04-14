@@ -11,9 +11,7 @@
 <center>
 
 <div style="color: teal;font-size: 30px">User Details</div>
-
-
-
+<p>${message}</p>
 <c:if test="${!empty user}">
 <table border="1" bgcolor="black" width="600px">
 <tr style="background-color: teal;color: white;text-align: center;" height="40px">
@@ -22,6 +20,7 @@
 <td>Last Name</td>
 <td>Gender</td>
 <td>City</td>
+<td colspan="2">Actions</td>
 </tr>
 <c:forEach items="${user}" var="user">
 <tr style="background-color:white;color: black;text-align: center;" height="30px" >
@@ -30,6 +29,8 @@
 <td><c:out value="${user.lastName}"/></td>
 <td><c:out value="${user.gender}"/></td>
 <td><c:out value="${user.city}"/></td>
+<td><a href="${pageContext.request.contextPath}/user/edit/${user.id}.html">Edit</a></td>
+<td><a href="${pageContext.request.contextPath}/user/delete/${user.id}.html">Delete</a></td>
 </tr>
 </c:forEach>
 </table>

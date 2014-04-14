@@ -28,6 +28,14 @@ public class HomeController {
 	
 	@RequestMapping("/register")
 	public ModelAndView getRegisterForm(@ModelAttribute("user") UserModel user,  BindingResult result){
+		Map<String, Object> model = loadData();  
+		
+        System.out.println("Register Form");  
+		
+		return new ModelAndView("Register","model",model);
+	}
+
+	private Map<String, Object> loadData() {
 		ArrayList<String> gender = new ArrayList<String>();  
         gender.add("Male");  
         gender.add("Female");  
@@ -40,11 +48,8 @@ public class HomeController {
   
         Map<String, Object> model = new HashMap<String, Object>();  
         model.put("gender", gender);  
-        model.put("city", city);  
-  
-        System.out.println("Register Form");  
-		
-		return new ModelAndView("Register","model",model);
+        model.put("city", city);
+		return model;
 	}
 	
 	@RequestMapping("/saveUser")
@@ -64,6 +69,25 @@ public class HomeController {
 	        return new ModelAndView("UserDetails", model);  
 	  
 	    } 
+	  
+	  @RequestMapping(value="/user/edit/{id}", method=RequestMethod.GET)
+	  public ModelAndView editUser(@PathVariable Integer id){
+		  ModelAndView modelView=new ModelAndView("Edit-UserForm");
+		  UserModel user=userService.getUser(id);
+		
+		  modelView.addObject("user", user);
+		  return modelView;
+	  }
+	  
+	  //call this method when form is been submitted
+	  @RequestMapping(value="/user/edit/{id}", method=RequestMethod.POST)
+	  public ModelAndView saveEditedUser(@ModelAttribute UserModel user,@PathVariable Integer id){
+		  ModelAndView modelAndView=new ModelAndView("redirect:/userList.html");
+		  userService.updateUser(user);
+			String message = "User was successfully edited.";
+			modelAndView.addObject("message", message);
+		  return modelAndView;
+	  }
 	  
 	  @RequestMapping(value="/user/delete/{id}", method=RequestMethod.GET)
 	  public ModelAndView deleteUser(@PathVariable Integer id){
