@@ -1,6 +1,8 @@
-appliciation consists of spring hibernate integration using NO xml configuration files
+<b>Spring Hibernate-Maven app</b>
 
-steps to run the app
+This is a simple CRUD Appliciation consists of spring hibernate integration using NO xml configuration files.
+
+Steps to run the app
 
 1) run the below query in db 
 
