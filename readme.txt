@@ -1,4 +1,4 @@
-Spring Hibernate-Maven app<
+Spring Hibernate-Maven app
 
 This is a simple CRUD Appliciation consists of spring hibernate integration using NO xml configuration files.
 
