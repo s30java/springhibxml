@@ -12,4 +12,6 @@ public interface UserService {
 
 	public void addUser(UserModel user);                      
 	public List<UserModel> getUser();
+	public void deleteUser(int id);
+	public UserModel getUser(int id);
 }

@@ -30,4 +30,16 @@ public class UserServiceIImpl implements UserService {
 		return getusers;
 	}
 
+	@Override
+	public void deleteUser(int id) {
+		userDao.deleteUser(id);
+		
+	}
+
+	@Override
+	public UserModel getUser(int id) {
+		UserModel userModel=userDao.getUser(id);
+		return userModel;
+	}
+
 }

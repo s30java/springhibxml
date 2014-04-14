@@ -8,7 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.springhibxml.model.UserModel;
@@ -62,4 +64,13 @@ public class HomeController {
 	        return new ModelAndView("UserDetails", model);  
 	  
 	    } 
+	  
+	  @RequestMapping(value="/user/delete/{id}", method=RequestMethod.GET)
+	  public ModelAndView deleteUser(@PathVariable Integer id){
+		  ModelAndView modelAndView=new ModelAndView("redirect:/userList.html");
+		  userService.deleteUser(id);
+			String message = "User was successfully deleted.";
+			modelAndView.addObject("message", message);
+		  return modelAndView;
+	  }
 }
