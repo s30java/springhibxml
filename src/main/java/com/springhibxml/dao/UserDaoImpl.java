@@ -56,7 +56,7 @@ public class UserDaoImpl implements UserDao {
 	@Override
 	public UserModel getUser(int id) {
 		UserModel userModel=(UserModel)sessionFactory.getCurrentSession().get(UserModel.class,id);
-		
+		System.out.println("in actual implementation for class been defined..............CAME HER IN AGAIN VERSION@");
 		return userModel;
 	}
 
